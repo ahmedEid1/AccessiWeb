@@ -1,7 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import AuthProtected from "Layout/Authentication";
 import ProtectedRoutes from "Layout/Dashboard";
-import { Home } from "@pages/Dashboard";
+import { History, Home } from "@pages/Dashboard";
 import { Login, Signup } from "@pages/Authentication";
 
 const router = createBrowserRouter([
@@ -28,8 +28,16 @@ const router = createBrowserRouter([
     element: <ProtectedRoutes />,
     children: [
       {
-        path: "",
+        path: "home",
         element: <Home />,
+      },
+      {
+        path: "history",
+        element: <History />,
+      },
+      {
+        path: "",
+        element: <Navigate to="home" />,
       },
     ],
   },
