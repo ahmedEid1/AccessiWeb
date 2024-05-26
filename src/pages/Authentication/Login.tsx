@@ -5,17 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import imgLogo from "assets/accessiweb-two.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "provider/useAuth";
 
 interface IFormInput {
   email: string;
   password: string;
 }
 export const Login = () => {
+  const { login } = useAuthContext();
+  const navigate = useNavigate();
   const { handleSubmit, register } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
+    login("hello there");
+    navigate("/dashboard", { replace: true });
   };
   return (
     <Box className="border rounded-md w-full md:w-1/2 bg-[#F0F8FF]">
