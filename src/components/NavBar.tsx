@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button } from "@/components/ui/button";
 import { useAuthContext } from "provider/useAuth";
+import "./navbar.module.css";
 
 const NavBar = () => {
   const { logout } = useAuthContext();
@@ -12,8 +13,8 @@ const NavBar = () => {
     logout();
   };
   return (
-    <Box>
-      <nav className="flex text-center items-center p-4 border inline-block">
+    <Box className="fixed top-0 left-0 right-0 z-50 bg-white">
+      <nav className="flex text-center items-center p-4 border inline-block ">
         <Box className="w-1/3 inline-block  ">
           <Link href="/dashboard">
             <img src={logo} width={200} />

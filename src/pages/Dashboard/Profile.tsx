@@ -18,7 +18,7 @@ export const Profile = () => {
   };
   return (
     <Box className="">
-      <Box className="border  rounded-md   md:w-1/2 bg-[#F0F8FF] p-2 mx-4 md:mx-auto my-[100px]">
+      <Box className="border  rounded-md   md:w-1/2 bg-[#F0F8FF] p-2 mx-4 md:mx-auto ">
         <Box className="p-4">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <Box className=" grid md:grid-cols-2 gap-2">
