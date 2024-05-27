@@ -19,8 +19,11 @@ export const Signup = () => {
     console.log(data);
   };
   return (
-    <Box className="border rounded-md w-full md:w-1/2 bg-[#F0F8FF]">
-      <img src={imgLogo} />
+    <Box className="border rounded-md w-full md:w-1/2 bg-[#F0F8FF] p-2">
+      <Box className="flex justify-center mx-auto mt-4">
+        <img src={imgLogo} width={200} />
+      </Box>
+
       <Box className="p-4">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <Box className=" ">
