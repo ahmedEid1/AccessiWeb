@@ -1,8 +1,16 @@
-import { Box, Link } from "@mui/material";
+import { Box, Link, Tooltip } from "@mui/material";
 import logo from "assets/accessiweb-two.png";
 import { NavLink } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Button } from "@/components/ui/button";
+import { useAuthContext } from "provider/useAuth";
 
 const NavBar = () => {
+  const { logout } = useAuthContext();
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <Box>
       <nav className="flex text-center items-center p-4 border inline-block">
@@ -12,7 +20,7 @@ const NavBar = () => {
           </Link>
         </Box>
 
-        <Box className="flex justify-end md:justify-center items-center gap-4 flex-grow md:w-1/3 inline-block ">
+        <Box className="flex justify-center items-center gap-4 flex-grow md:w-1/3 inline-block ">
           <NavLink
             to="home"
             className={({ isActive }) =>
@@ -35,7 +43,13 @@ const NavBar = () => {
           </NavLink>
         </Box>
 
-        <Box className="md:w-1/3 "></Box>
+        <Box className="md:w-1/3  justify-self-end text-right">
+          <Tooltip title="Logout">
+            <Button onClick={handleLogout}>
+              <LogoutIcon />
+            </Button>
+          </Tooltip>
+        </Box>
       </nav>
     </Box>
   );
