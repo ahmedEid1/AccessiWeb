@@ -42,7 +42,7 @@ const NavBar = () => {
           >
             History
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="profile"
             className={({ isActive }) =>
               isActive
@@ -51,7 +51,7 @@ const NavBar = () => {
             }
           >
             Profile
-          </NavLink>
+          </NavLink> */}
         </Box>
 
         <Box className="md:w-1/3  justify-self-end text-right">
