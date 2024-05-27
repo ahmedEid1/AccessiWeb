@@ -20,7 +20,7 @@ const DashboardLayout = () => {
         theme="light"
         transition={Zoom}
       />
-      <Box>
+      <Box className="mt-[100px]">
         <Outlet />
       </Box>
     </div>

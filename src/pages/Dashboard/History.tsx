@@ -46,7 +46,7 @@ export const History = () => {
   ];
   return (
     <Box>
-      <Box className="w-1/2  m-auto ">
+      <Box className="md:w-1/2  m-auto ">
         <Chrono items={items} mode="VERTICAL" slideShow disableToolbar />
       </Box>
     </Box>
