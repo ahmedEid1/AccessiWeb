@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { getFromCache, storeInCache } from "utils/util";
 interface IContextInitial {
   token: string;

@@ -1,6 +1,5 @@
 import NavBar from "@components/NavBar";
 import { Box } from "@mui/material";
-import React from "react";
 import { Outlet } from "react-router-dom";
 import { ToastContainer, Zoom } from "react-toastify";
 
