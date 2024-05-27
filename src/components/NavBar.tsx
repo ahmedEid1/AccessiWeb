@@ -41,6 +41,16 @@ const NavBar = () => {
           >
             History
           </NavLink>
+          <NavLink
+            to="profile"
+            className={({ isActive }) =>
+              isActive
+                ? "bg-[#5454F6] text-white px-4 py-2 p rounded-md"
+                : "hover:underline hover:underline-offset-8"
+            }
+          >
+            Profile
+          </NavLink>
         </Box>
 
         <Box className="md:w-1/3  justify-self-end text-right">
