@@ -1,7 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import AuthProtected from "Layout/Authentication";
 import ProtectedRoutes from "Layout/Dashboard";
-import { History, Home } from "@pages/Dashboard";
+import { History, Home, Profile } from "@pages/Dashboard";
 import { Login, Signup } from "@pages/Authentication";
 
 const router = createBrowserRouter([
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "history",
         element: <History />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       {
         path: "",
