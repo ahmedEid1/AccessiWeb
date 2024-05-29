@@ -115,6 +115,29 @@ button:focus-visible {
   background-color: #3c3c3c;
 }
 
+.menus {
+  width: 75%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.menus li {
+  margin: 0px 15px;
+}
+
+.menus__list {
+  display: flex;
+  align-items: center;
+}
+
+.menus__hamburger {
+  display: none;
+}
+
+.menus__close {
+  display: none;
+}
 @media only screen and (max-width: 768px) {
   .box1 {
     visibility: hidden;
@@ -123,5 +146,50 @@ button:focus-visible {
   }
   .box2 {
     width: 100%;
+  }
+
+  .menus {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    background-color: aliceblue;
+    transition: all 0.6s;
+    flex-direction: column;
+    border: 1px solid blue;
+    justify-content: flex-start;
+    padding: 15px 10px;
+    z-index: 100000;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .show_menu {
+    right: 0;
+  }
+
+  .menus__list {
+    flex-direction: column;
+    /* border: 1px solid red; */
+    margin-top: 30px;
+    align-items: flex-start;
+    height: 50%;
+    padding: 0px;
+  }
+
+  .menus__list li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+
+  .menus__hamburger {
+    display: block;
+  }
+
+  .menus__close {
+    display: block;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    /* margin-right: 10; */
   }
 }
