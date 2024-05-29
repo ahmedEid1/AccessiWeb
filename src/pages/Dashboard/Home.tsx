@@ -140,7 +140,7 @@ export const Home = () => {
           Generate description for any image using AI
         </Typography>
       </Box>
-      <Box className="flex flex-col justify-center mx-4 md:mx-auto md:w-1/3  p-4 rounded-md border mx-auto ">
+      <Box className="flex flex-col justify-center mx-4 md:mx-auto md:w-1/3  p-4 rounded-md border mx-2 md:mx-auto ">
         <div className="text-left">
           <Typography variant="body1">Upload Image</Typography>
           <div
