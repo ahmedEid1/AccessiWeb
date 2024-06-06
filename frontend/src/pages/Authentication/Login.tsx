@@ -11,16 +11,41 @@ interface IFormInput {
   email: string;
   password: string;
 }
+
 export const Login = () => {
   const { login } = useAuthContext();
   const navigate = useNavigate();
   const { handleSubmit, register } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-    login("hello there");
-    navigate("/dashboard", { replace: true });
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    const requestBody = {
+      email: data.email,
+      password: data.password,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+        credentials: 'include',  // Include credentials for session-based authentication
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        login('session');  // Call login function with a placeholder value
+        navigate("/dashboard", { replace: true });
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred. Please try again later.');
+    }
   };
+
   return (
     <Box className="border rounded-md w-full md:w-1/2 bg-[#F0F8FF] p-2">
       <Box className="flex justify-center mx-auto mt-4">
@@ -59,4 +84,4 @@ export const Login = () => {
   );
 };
 
-// export default Login;
+export default Login;

@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: accessiweb_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: accessiweb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  minio:
+    image: minio/minio
+    container_name: accessiweb_minio
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server /data
+    ports:
+      - "9000:9000"
+    volumes:
+      - minio_data:/data
+
+  flask:
+    build: ./backend  # Assuming your backend code is in the backend directory
+    container_name: accessiweb_flask
+    environment:
+      SECRET_KEY: your_secret_key
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/accessiweb
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+      MINIO_URL: http://minio:9000
+      MINIO_BUCKET: accessiweb-bucket
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+      - minio
+    volumes:
+      - ./backend:/app  # Assuming your backend code is in the backend directory
+
+  frontend:
+    build: ./frontend  # Assuming your frontend code is in the frontend directory
+    container_name: accessiweb_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - flask
+
+volumes:
+  db_data:
+  minio_data:

@@ -12,12 +12,38 @@ interface IFormInput {
   password: string;
   cpassword: string;
 }
+
 export const Signup = () => {
   const { handleSubmit, register } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    const requestBody = {
+      username: data.fullname,
+      email: data.email,
+      password: data.password,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message);
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error('Error registering user:', error);
+      alert('An error occurred. Please try again later.');
+    }
   };
+
   return (
     <Box className="border rounded-md w-full md:w-1/2 bg-[#F0F8FF] p-2">
       <Box className="flex justify-center mx-auto mt-4">
@@ -74,4 +100,4 @@ export const Signup = () => {
   );
 };
 
-// export default Signup;
+export default Signup;
