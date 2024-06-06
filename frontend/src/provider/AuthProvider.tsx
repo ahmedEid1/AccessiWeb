@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { getFromCache, storeInCache } from "utils/util";
+
 interface IContextInitial {
   token: string;
-  login: (val: string) => void;
+  login: (val?: string) => void;
   logout: () => void;
 }
+
 export const AuthContext = createContext<IContextInitial>({
   token: "",
   login: () => {},
@@ -23,7 +25,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     }
   }, []);
 
-  const login = (val: string) => {
+  const login = (val: string = 'session') => {
     storeInCache("token", val);
     setToken(val);
   };
@@ -32,6 +34,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     localStorage.removeItem("token");
     setToken("");
   };
+
   return (
     <AuthContext.Provider value={{ token, login, logout }}>
       {children}
