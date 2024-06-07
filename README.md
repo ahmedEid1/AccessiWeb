@@ -210,7 +210,7 @@ https://drive.google.com/drive/folders/1Zt0eDsQXgxeKcCxecVh4s1SRcory2EEg?usp=sha
 ## 🔗 Team Members
 - [Ahmed Hobeishy](https://www.linkedin.com/in/ahmedhobeishy/)
 - (FE-TODO)
-- [Ahmed Hobeishy](https://www.linkedin.com/in/ahmedhobeishy/)
+- [Chowdhury Abida Anjum Era](https://www.linkedin.com/in/chowdhury-abida-anjum-era/)
 
 ----
 ## Acknowledgements
