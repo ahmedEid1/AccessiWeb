@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y netcat-openbsd && rm -rf /var/lib/apt/l
 COPY requirements.txt requirements.txt
 
 # Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt --progress-bar on --no-cache-dir --verbose
 
 # Copy the rest of the application code
 COPY . .

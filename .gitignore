@@ -251,3 +251,6 @@ instance/*
 
 # migrations
 migrations
+
+# machine learning models
+machine-learning

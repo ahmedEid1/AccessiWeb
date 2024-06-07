@@ -8,3 +8,7 @@ flask-cors
 psycopg2-binary
 boto3
 python-dotenv
+tensorflow==2.10.0
+Pillow==9.4.0
+numpy==1.24.2
+matplotlib==3.7.0

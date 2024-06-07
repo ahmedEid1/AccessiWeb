@@ -6,25 +6,43 @@ import { Button } from "@/components/ui/button";
 import { useAuthContext } from "provider/useAuth";
 import "./navbar.module.css";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface INavItem {
   title: string;
   url: string;
 }
 const navItems: INavItem[] = [
-  {
-    title: "Home",
-    url: "home",
-  },
+  { title: "Home", url: "home" },
   { title: "History", url: "history" },
   { title: "Profile", url: "profile" },
 ];
+
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { logout } = useAuthContext();
+  const { logout, isLoading } = useAuthContext();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // Include credentials for session-based authentication
+      });
+
+      if (response.ok) {
+        logout();
+        toast.success("Logged out successfully");
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || "Failed to logout");
+      }
+    } catch (error) {
+      console.error("Error logging out:", error);
+      toast.error("An error occurred. Please try again later.");
+    }
   };
 
   const handleToggleMenu = () => {
@@ -34,6 +52,10 @@ const NavBar = () => {
   const handleCloseMenuOnMobile = () => {
     if (window.innerWidth <= 800) setShowMenu(false);
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Box className="fixed top-0 left-0 right-0 z-50 bg-white">
