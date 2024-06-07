@@ -89,6 +89,7 @@ the application uses environment variables to configure the backend server, the 
 ## Documentation
 
 ### Architecture Overview
+![architecture-overview](architecture-overview1.png)
 ![architecture-overview](architecture-overview.png)
 
 #### Frontend (React.js)
