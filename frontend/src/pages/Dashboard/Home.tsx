@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Box, Typography } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 import { Description } from "./components/Description";
+import { toast } from "react-toastify";
 
 const thumbsContainer: React.CSSProperties = {
   display: "flex",
@@ -54,8 +55,6 @@ const baseStyle: CSSProperties = {
   justifyContent: "center",
   marginTop: 10,
   marginBottom: 15,
-  //   width: "400px",
-  //   alignItems: "center",
 };
 
 const focusedStyle: CSSProperties = {
@@ -77,6 +76,7 @@ interface IImage extends File {
 export const Home = () => {
   const [isDescriptionVisible, setDescriptionVisibility] = useState(false);
   const [files, setFiles] = useState<IImage[]>([]);
+  const [description, setDescription] = useState("");
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
     useDropzone({
       accept: {
@@ -122,10 +122,36 @@ export const Home = () => {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
-  }, []);
+  }, [files]);
 
-  const handleDescribeImage = () => {
-    setDescriptionVisibility(true);
+  const handleDescribeImage = async () => {
+    if (files.length === 0) {
+      toast.error("Please upload an image first");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", files[0]);
+
+    try {
+      const response = await fetch('http://localhost:5000/upload', {
+        method: 'POST',
+        body: formData,
+        credentials: 'include',  // Include credentials for session-based authentication
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setDescription(data.description);
+        setDescriptionVisibility(true);
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || "Failed to get image description");
+      }
+    } catch (error) {
+      console.error("Error describing image:", error);
+      toast.error("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -140,7 +166,7 @@ export const Home = () => {
           Generate description for any image using AI
         </Typography>
       </Box>
-      <Box className="flex flex-col justify-center mx-4 md:mx-auto md:w-1/3  p-4 rounded-md border mx-2 md:mx-auto ">
+      <Box className="flex flex-col justify-center mx-4 md:mx-auto md:w-1/3 p-4 rounded-md border mx-2 md:mx-auto ">
         <div className="text-left">
           <Typography variant="body1">Upload Image</Typography>
           <div
@@ -163,11 +189,11 @@ export const Home = () => {
         </div>
         <Button onClick={handleDescribeImage}>Generate Description</Button>
         <Box>
-          {isDescriptionVisible && (
-            <Description text="The image is a QR code that can be scanned with a mobile device. The content instructs to scan the code. The image contains text and is a screenshot." />
-          )}
+          {isDescriptionVisible && <Description text={description} />}
         </Box>
       </Box>
     </Box>
   );
 };
+
+export default Home;

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:13
@@ -41,10 +39,11 @@ services:
       - db
       - minio
     volumes:
-      - ./backend:/app  # Assuming your backend code is in the backend directory
+      - ./backend:/app
+      - ./machine-learning:/app/machine-learning
 
   frontend:
-    build: ./frontend  # Assuming your frontend code is in the frontend directory
+    build: ./frontend
     container_name: accessiweb_frontend
     ports:
       - "3000:3000"
