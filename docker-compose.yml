@@ -15,16 +15,17 @@ services:
     image: minio/minio
     container_name: accessiweb_minio
     environment:
-      MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: minio123
-    command: server /data
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server /data --console-address ":9001"
     ports:
       - "9000:9000"
+      - "9001:9001"
     volumes:
       - minio_data:/data
 
   flask:
-    build: ./backend  # Assuming your backend code is in the backend directory
+    build: ./backend
     container_name: accessiweb_flask
     environment:
       SECRET_KEY: your_secret_key
