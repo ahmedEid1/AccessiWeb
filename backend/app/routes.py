@@ -118,3 +118,13 @@ def get_image():
         return jsonify({'message': 'Image not found'}), 404
     except Exception as e:
         return jsonify({'message': str(e)}), 500
+
+@bp.route('/profile', methods=['GET'])
+@login_required
+def profile():
+    user = current_user
+    user_data = {
+        "fullname": user.username,
+        "email": user.email
+    }
+    return jsonify(user_data)
