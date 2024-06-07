@@ -20,7 +20,7 @@ storage and retrieval of data using PostgreSQL for metadata and MinIO for image 
 
 **Storage:** MinIO
 
-**Machine Learning:** ML-TODO
+**Machine Learning:** TensorFlow, VGG16
 
 **Deployment:** Docker, Docker Compose
 
