@@ -201,9 +201,10 @@ the application uses environment variables to configure the backend server, the 
 ---
 ### Machine Learning (ML-TODO)
 #### DataSet 
-https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset
+[Link to the Dataset](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset)
+
 #### Model Link
-https://drive.google.com/drive/folders/1Zt0eDsQXgxeKcCxecVh4s1SRcory2EEg?usp=sharing
+[Trained Model](https://drive.google.com/drive/folders/1Zt0eDsQXgxeKcCxecVh4s1SRcory2EEg?usp=sharing)
 
 ---
 
