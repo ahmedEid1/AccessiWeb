@@ -105,7 +105,7 @@ the application uses environment variables to configure the backend server, the 
 - Processes images and generates descriptive text.
 
 #### Model
-- **Dataset**: Flickr Image Dataset is used to train the model.
+- **Dataset**: Flickr_30k Image Dataset is used to train the model.
 
 #### Deployment
 - **Docker**: Used to deploy the application.
@@ -210,9 +210,9 @@ https://drive.google.com/drive/folders/1Zt0eDsQXgxeKcCxecVh4s1SRcory2EEg?usp=sha
 ## 🔗 Team Members
 - [Ahmed Hobeishy](https://www.linkedin.com/in/ahmedhobeishy/)
 - (FE-TODO)
-- (ML-TODO)
+- [Ahmed Hobeishy](https://www.linkedin.com/in/ahmedhobeishy/)
 
 ----
 ## Acknowledgements
-- (ML-TODO) maybe a link for the blog post or the paper we based our solution on ?
+- [The blog post we based our solution on](https://medium.com/@khaledeemam/a-step-by-step-guide-to-building-an-image-caption-generator-using-tensorflow-a9e0a87cc0cb)
 
