@@ -43,7 +43,7 @@ storage and retrieval of data using PostgreSQL for metadata and MinIO for image 
      - you can check the status of the backend server by running `docker logs accessiweb_flask` in another terminal or it you can see it in the running logs of the build, you will see the logs from TensorFlow model loading
      - once the model is loaded, you will see the url of the backend server in the logs and message that the server is ready to accept requests
      - at this point, you can start using the application
-   - **Note:** if you get "./entrypoint.sh no such file or directory" error, please check (https://stackoverflow.com/questions/44460825/entrypoint-file-not-found)[entrypoint file not found] for a solution, as some systems might have issues with the line endings in the entrypoint.sh file or Docker may be configured differently
+   - **Note:** if you get "./entrypoint.sh no such file or directory" error, please check [entrypoint file not found](https://stackoverflow.com/questions/44460825/entrypoint-file-not-found) for a solution, as some systems might have issues with the line endings in the entrypoint.sh file or Docker may be configured differently
 4. Access the frontend at `http://localhost:3000`
 5. Access the backend at `http://localhost:5000`
 6. Access MinIO at `http://localhost:9000` (credentials: env variables in `docker-compose.yml`)
