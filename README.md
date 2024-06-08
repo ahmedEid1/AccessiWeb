@@ -214,6 +214,3 @@ the application uses environment variables to configure the backend server, the 
 - [Chowdhury Abida Anjum Era](https://www.linkedin.com/in/chowdhury-abida-anjum-era/)
 
 ----
-## Acknowledgements
-- [The blog post we based our solution on](https://medium.com/@khaledeemam/a-step-by-step-guide-to-building-an-image-caption-generator-using-tensorflow-a9e0a87cc0cb)
-
