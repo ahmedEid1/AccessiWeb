@@ -211,7 +211,7 @@ the application uses environment variables to configure the backend server, the 
 
 ## 🔗 Team Members
 - [Ahmed Hobeishy](https://www.linkedin.com/in/ahmedhobeishy/)
-- (FE-TODO)
+- [Samuel Oluwole](https://www.linkedin.com/in/sooluwole)
 - [Chowdhury Abida Anjum Era](https://www.linkedin.com/in/chowdhury-abida-anjum-era/)
 
 ----
