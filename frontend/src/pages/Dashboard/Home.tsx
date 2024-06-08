@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 import { Description } from "./components/Description";
 import { toast } from "react-toastify";
@@ -76,6 +76,7 @@ interface IImage extends File {
 export const Home = () => {
   const [isDescriptionVisible, setDescriptionVisibility] = useState(false);
   const [files, setFiles] = useState<IImage[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const [description, setDescription] = useState("");
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
     useDropzone({
@@ -134,12 +135,14 @@ export const Home = () => {
     formData.append("image", files[0]);
 
     try {
-      const response = await fetch('http://localhost:5000/upload', {
-        method: 'POST',
+      setLoading(true);
+      const response = await fetch("http://localhost:5000/upload", {
+        method: "POST",
         body: formData,
-        credentials: 'include',  // Include credentials for session-based authentication
+        credentials: "include", // Include credentials for session-based authentication
       });
 
+      setLoading(false);
       if (response.ok) {
         const data = await response.json();
         setDescription(data.description);
@@ -149,6 +152,7 @@ export const Home = () => {
         toast.error(errorData.message || "Failed to get image description");
       }
     } catch (error) {
+      setLoading(false);
       console.error("Error describing image:", error);
       toast.error("An error occurred. Please try again later.");
     }
@@ -187,10 +191,11 @@ export const Home = () => {
             )}
           </div>
         </div>
-        <Button onClick={handleDescribeImage}>Generate Description</Button>
-        <Box>
-          {isDescriptionVisible && <Description text={description} />}
-        </Box>
+        <Button onClick={handleDescribeImage} disabled={files.length === 0}>
+          {loading && <CircularProgress />}
+          Generate Description
+        </Button>
+        <Box>{isDescriptionVisible && <Description text={description} />}</Box>
       </Box>
     </Box>
   );
