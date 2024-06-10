@@ -203,7 +203,7 @@ the application uses environment variables to configure the backend server, the 
 | `None`    | `N/A`     | No parameters required     |
 
 ---
-### Machine Learning (ML-TODO)
+### Machine Learning
 #### DataSet 
 [Link to the Dataset](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset)
 
