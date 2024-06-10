@@ -210,6 +210,12 @@ the application uses environment variables to configure the backend server, the 
 #### Model Link
 [Trained Model](https://drive.google.com/drive/folders/1Zt0eDsQXgxeKcCxecVh4s1SRcory2EEg?usp=sharing)
 
+- VGG16 pre-trained model. Extract image features and represent each image as a fixed-length vector
+- Split Ratio: 90% training set, 5% validation set, 5% test set
+- TextVectorization layer from TensorFlow.
+- Keras API with TensorFlow backend.
+-  50 epochs with data shuffling before each epoch to reduce overfitting
+- The BLEU score (Bilingual Evaluation Understudy) is used to measure the similarity between generated and reference captions.
 ---
 
 ## 🔗 Team Members
