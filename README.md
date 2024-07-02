@@ -113,8 +113,11 @@ the application uses environment variables to configure the backend server, the 
 
 
 ----
-### Frontend (FE-TODO)
-
+### Frontend
+- The frontend uses React library in building a mobile responsive web app for the application.
+- The frontend uses Typescript for safe type checking of variable and frontend components
+- The frontend uses open source libraries such as Tailwincss and MaterialUI for the UI components
+- The frontend uses open source library React Dropzone for safe management of the images on the frontend.
 
 ---
 ### Backend
@@ -200,18 +203,24 @@ the application uses environment variables to configure the backend server, the 
 | `None`    | `N/A`     | No parameters required     |
 
 ---
-### Machine Learning (ML-TODO)
+### Machine Learning
 #### DataSet 
 [Link to the Dataset](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset)
 
 #### Model Link
 [Trained Model](https://drive.google.com/drive/folders/1Zt0eDsQXgxeKcCxecVh4s1SRcory2EEg?usp=sharing)
 
+- VGG16 pre-trained model. Extract image features and represent each image as a fixed-length vector
+- Split Ratio: 90% training set, 5% validation set, 5% test set
+- TextVectorization layer from TensorFlow.
+- Keras API with TensorFlow backend.
+-  50 epochs with data shuffling before each epoch to reduce overfitting
+- The BLEU score (Bilingual Evaluation Understudy) is used to measure the similarity between generated and reference captions.
 ---
 
 ## 🔗 Team Members
 - [Ahmed Hobeishy](https://www.linkedin.com/in/ahmedhobeishy/)
-- (FE-TODO)
+- [Samuel Oluwole](https://www.linkedin.com/in/sooluwole)
 - [Chowdhury Abida Anjum Era](https://www.linkedin.com/in/chowdhury-abida-anjum-era/)
 
 ----
