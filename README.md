@@ -127,7 +127,7 @@ the application uses environment variables to configure the backend server, the 
 - The backend uses MinIO to store image files for efficient and scalable storage.
 
 #### API Reference
-**_- Note: a postman collection is provided in ./backend/AccessiWeb.postman_collection.json**_
+**- Note: a postman collection is provided in ./backend/AccessiWeb.postman_collection.json**
 
 ##### Register a new user
 
