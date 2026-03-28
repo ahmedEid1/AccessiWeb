@@ -12,7 +12,7 @@ storage and retrieval of data using PostgreSQL for metadata and MinIO for image 
 ---
 ## Tech Stack
 
-**Frontend:** FE-TODO
+**Frontend:** React
 
 **Backend:** Python, Flask, TensorFlow
 
