@@ -7,7 +7,7 @@ storage and retrieval of data using PostgreSQL for metadata and MinIO for image 
 
 ----
 ## Demo
-- [Live Demo](https://youtu.be/qCFeIX7077s)
+- [Video Demo](https://youtu.be/qCFeIX7077s)
 
 ---
 ## Tech Stack
