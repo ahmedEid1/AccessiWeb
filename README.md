@@ -29,9 +29,7 @@ storage and retrieval of data using PostgreSQL for metadata and MinIO for image 
 ### running with docker
 #### Prerequisites
 - Docker
-  - [Windows](https://docs.docker.com/desktop/install/windows-install/) 
 - Docker Compose
-  - [Windows](https://docs.docker.com/compose/install/)
 
 #### Steps
 1. Clone the repository
